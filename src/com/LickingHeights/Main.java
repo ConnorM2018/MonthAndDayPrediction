@@ -5,21 +5,26 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        
+        //Declaring Variables
         int days;
         int dotw;
         int day;
         int year;
         int numberMonth;
         int continueOrNo;
-
         Scanner keyboard;
         keyboard = new Scanner(System.in);
+
+        //Initialize
         continueOrNo=1;
         while(continueOrNo==1){
             poem();
             System.out.println("Let's see what day you were born on.");
             System.out.println("What month were you born on? (Enter a number.)");
             numberMonth=keyboard.nextInt();
+
+            //For the program to work properly, January needs to be changed to 13, and February needs to be changed to 14.
             switch (numberMonth){
                 case 1:
                     numberMonth=13;
@@ -31,19 +36,28 @@ public class Main {
                     break;
             }
             days=(numberOfDays(numberMonth));
+
             System.out.println("What day were you born on? (Enter a number)");
             day=keyboard.nextInt();
             System.out.println("What year were you born? (Enter a number)");
             year=keyboard.nextInt();
+
+            //This is the equation that determines what day of the week the user was born on.
             dotw=((day+((13* (numberMonth+1))/5)+year+(year/4)-(year/100)+(year/400))%7);
             poemResult(days, numberMonth, dotw);
+
             System.out.println(" ");
             continueOrNo=2;
+
+            //This allows the user to stop the loop if they don't wish for it to continue.
             System.out.println("Do you wish to try again? (1=yes, 2=no)");
             continueOrNo=keyboard.nextInt();
         }
     }
+
     public static void poem(){
+
+        //This is the poem
         System.out.println("There is an old nursery rhyme that goes like this...");
         System.out.println(" ");
         System.out.println("Monday's child is full of face,");
@@ -57,6 +71,7 @@ public class Main {
         System.out.println(" ");
     }
     public static int numberOfDays(int numberMonth) {
+        //This code determines how many days are in each month
         switch (numberMonth) {
 
             case 3:
@@ -89,6 +104,7 @@ public class Main {
     }
     public static void poemResult(int days, int numberMonth,int dotw){
         String month;
+        //This code is responsible for defining the name of the month the user was born on
         switch (numberMonth){
             case 3:
                 month="March";
@@ -130,7 +146,9 @@ public class Main {
                 month="[Error]";
                 break;
         }
+
         System.out.println("There are "+days+" days in "+month+".");
+        //The code below is responsible for telling the user what day of the week they were born on
         switch (dotw){
             case 0:
                 System.out.println("You were born on a Saturday.");
