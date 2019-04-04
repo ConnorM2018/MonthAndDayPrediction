@@ -52,7 +52,7 @@ public class Main {
         System.out.println("Thursday's child has far to go.");
         System.out.println("Friday's child is loving and giving,");
         System.out.println("Saturday's child works hard for a living");
-        System.out.println("But the child born on the Sabbath Day.");
+        System.out.println("But the child born on the Sabbath Day,");
         System.out.println("Is fair and wise and good in every way.");
         System.out.println(" ");
     }
