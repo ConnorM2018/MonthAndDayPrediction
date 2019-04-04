@@ -10,31 +10,39 @@ public class Main {
         int day;
         int year;
         int numberMonth;
+        int continueOrNo;
 
         Scanner keyboard;
         keyboard = new Scanner(System.in);
-        
-        poem();
-        System.out.println("Let's see what day you were born on.");
-        System.out.println("What month were you born on? (Enter a number.)");
-        numberMonth=keyboard.nextInt();
-        switch (numberMonth){
-            case 1:
-                numberMonth=13;
-                break;
-            case 2:
-                numberMonth=14;
-                break;
-            default:
-                break;
+        continueOrNo=1;
+        while(continueOrNo==1){
+            poem();
+            System.out.println("Let's see what day you were born on.");
+            System.out.println("What month were you born on? (Enter a number.)");
+            numberMonth=keyboard.nextInt();
+            switch (numberMonth){
+                case 1:
+                    numberMonth=13;
+                    break;
+                case 2:
+                    numberMonth=14;
+                    break;
+                default:
+                    break;
+            }
+            days=(numberOfDays(numberMonth));
+            System.out.println("What day were you born on? (Enter a number)");
+            day=keyboard.nextInt();
+            System.out.println("What year were you born? (Enter a number)");
+            year=keyboard.nextInt();
+            dotw=((day+((13* (numberMonth+1))/5)+year+(year/4)-(year/100)+(year/400))%7);
+            poemResult(days, numberMonth, dotw);
+            System.out.println(" ");
+            continueOrNo=2;
+            System.out.println("Do you wish to try again? (1=yes, 2=no)");
+            continueOrNo=keyboard.nextInt();
         }
-        days=(numberOfDays(numberMonth));
-        System.out.println("What day were you born on? (Enter a number)");
-        day=keyboard.nextInt();
-        System.out.println("What year were you born? (Enter a number)");
-        year=keyboard.nextInt();
-        dotw=((day+((13* (numberMonth+1))/5)+year+(year/4)-(year/100)+(year/400))%7);
-        poemResult(days, numberMonth, dotw);
+
 
     }
     public static void poem(){
