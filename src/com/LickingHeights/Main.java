@@ -42,8 +42,6 @@ public class Main {
             System.out.println("Do you wish to try again? (1=yes, 2=no)");
             continueOrNo=keyboard.nextInt();
         }
-
-
     }
     public static void poem(){
         System.out.println("There is an old nursery rhyme that goes like this...");
@@ -56,6 +54,7 @@ public class Main {
         System.out.println("Saturday's child works hard for a living");
         System.out.println("But the child born on the Sabbath Day.");
         System.out.println("Is fair and wise and good in every way.");
+        System.out.println(" ");
     }
     public static int numberOfDays(int numberMonth) {
         switch (numberMonth) {
