@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String month;
         int days;
         int dotw;
         int day;
@@ -36,8 +35,8 @@ public class Main {
         year=keyboard.nextInt();
 
 
-        dotw=(day+((13* (numberMonth+1))/5));
-
+        dotw=((day+((13* (numberMonth+1))/5)+year+(year/4)-(year/100)+(year/400))%7);
+        poemResult(days, numberMonth, dotw);
 
     }
     public static void poem(){
@@ -81,6 +80,62 @@ public class Main {
                 return 28;
             default:
                 return 31;
+        }
+    }
+    public static void poemResult(int days, int numberMonth,int dotw){
+        String month;
+        switch (numberMonth){
+            case 3:
+                month="March";
+                break;
+            case 4:
+                month="April";
+                break;
+            case 5:
+                month="May";
+                break;
+            case 6:
+                month="June";
+                break;
+            case 7:
+                month="July";
+                break;
+            case 8:
+                month="August";
+                break;
+            case 9:
+                month="September";
+                break;
+            case 10:
+                month="October";
+                break;
+            case 11:
+                month="November";
+                break;
+            case 12:
+                month="December";
+                break;
+            case 13:
+                month="Janurary";
+                break;
+            case 14:
+                month="February";
+                break;
+            default:
+                month="[Error]";
+                break;
+        }
+        System.out.println("There are "+days+" days in "+month+".");
+        switch (dotw){
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            default:
+
         }
     }
 
